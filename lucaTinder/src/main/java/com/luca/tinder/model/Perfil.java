@@ -77,7 +77,7 @@ public class Perfil {
 
 	public Set<Categoria> getGustos() {
 		return gustos;
-	}
+	}//
 
 	public void setGustos(Set<Categoria> gustos) {
 		this.gustos = gustos;
