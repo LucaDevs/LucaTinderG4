@@ -3,6 +3,8 @@ package com.luca.tinder.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.github.javafaker.Faker;
@@ -13,7 +15,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	
+	Logger logger= LoggerFactory.getLogger(PerfilDaoImpl.class);
 	public boolean CrearFalsosPerfiles() {
 		for(int i=0;i<10;i++) {
 			Perfil p=new Perfil();
@@ -32,6 +34,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 				p.setGenero_perfil('H');
 			}
 			p.setDescripcion_perfil(faker.gameOfThrones().quote());
+			logger.info(p.toString());
 		
 		}
 		return true;
