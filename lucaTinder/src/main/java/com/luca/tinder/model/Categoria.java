@@ -2,9 +2,22 @@ package com.luca.tinder.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "categorias")
 public class Categoria {
+	@Id
+	@GeneratedValue
+	@Column(name = "id_categoria")
 	private int id_categoria;
 	private String nombre_categoria;
+	@ManyToMany
 	private Set<Perfil> perfil;
 
 	public Categoria() {

@@ -2,21 +2,29 @@ package com.luca.tinder.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "perfiles")
 public class Perfil {
-
-
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "cod_perfil")
+	private int cod_perfil;
 	private String nick_perfil;
 	private String nombre_perfil;
 	private char genero_perfil;
 	private int edad_perfil;
 	private String descripcion_perfil;
 	private String poblacion_perfil;
+	@ManyToMany
 	private Set<Categoria> categoria;
 	
 	
@@ -38,7 +46,10 @@ public class Perfil {
 		this.categoria = categoria;
 	}
 
-
+	public int getCod_perfil() {
+		return cod_perfil;
+	}
+	
 	public String getNick_perfil() {
 		return nick_perfil;
 	}
