@@ -2,8 +2,15 @@ package com.luca.tinder.model;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "perfiles")
 public class Perfil {
-	
+
+
 	private String nick_perfil;
 	private String nombre_perfil;
 	private char genero_perfil;
