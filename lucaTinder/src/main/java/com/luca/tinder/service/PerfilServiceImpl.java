@@ -32,4 +32,9 @@ public class PerfilServiceImpl implements PerfilService {
 	public void createNewPerfil(Perfil perfil) {
 		perfDao.save(perfil);
 	}
+	
+	public void createPerfilFalso() {
+		perfDao.CrearFalsosPerfiles();
+	}
+	
 }
