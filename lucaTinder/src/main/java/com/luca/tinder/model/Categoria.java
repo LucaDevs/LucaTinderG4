@@ -3,14 +3,16 @@ package com.luca.tinder.model;
 public class Categoria {
 	private int id_categoria;
 	private String nombre_categoria;
+	private Set<Perfil> perfil;
 
 	public Categoria() {
 	}
 
-	public Categoria(int id_categoria, String nombre_categoria) {
+	public Categoria(int id_categoria, String nombre_categoria, Set<Perfil> perfil) {
 		super();
 		this.id_categoria = id_categoria;
 		this.nombre_categoria = nombre_categoria;
+		this.perfil = perfil;
 	}
 
 	public int getId_categoria() {
@@ -29,8 +31,19 @@ public class Categoria {
 		this.nombre_categoria = nombre_categoria;
 	}
 
+	public Set<Perfil> getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Set<Perfil> perfil) {
+		this.perfil = perfil;
+	}
+
 	@Override
 	public String toString() {
-		return "Categoria [id_categoria=" + id_categoria + ", nombre_categoria=" + nombre_categoria + "]";
+		return "Categoria [id_categoria=" + id_categoria + ", nombre_categoria=" + nombre_categoria + ", perfil= " + perfil + "]";
 	}
+
+	
+	
 }
