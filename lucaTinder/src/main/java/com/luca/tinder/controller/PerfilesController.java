@@ -40,10 +40,11 @@ public class PerfilesController {
 			System.out.println("--- Hay algunos errores");
 			return "PerfilForm";
 		}
-
+		
+		servicio.createNewPerfil(perfil);
 		model.addAttribute("success",
 				"Estimado " + perfil.getNombre_perfil() + " , su registro se ha completado de forma correcta");
-		return "resumen";
+		return "seleccionPerfiles";
 	}
 
 }
