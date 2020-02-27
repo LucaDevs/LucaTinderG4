@@ -1,5 +1,7 @@
 package com.luca.tinder.model;
 
+import java.util.Set;
+
 public class Categoria {
 	private int id_categoria;
 	private String nombre_categoria;
