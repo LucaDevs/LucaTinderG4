@@ -8,8 +8,8 @@ public class Perfil {
 	private String nombre_perfil;
 	private char genero_perfil;
 	private int edad_perfil;
-	private String descripcion;
-	private String poblacion;
+	private String descripcion_perfil;
+	private String poblacion_perfil;
 	private Set<Categoria> categoria;
 	
 	
@@ -19,15 +19,15 @@ public class Perfil {
 	}
 
 
-	public Perfil(String nick_perfil, String nombre_perfil, char genero_perfil, int edad_perfil, String descripcion,
-			String poblacion, Set<Categoria> categoria) {
+	public Perfil(String nick_perfil, String nombre_perfil, char genero_perfil, int edad_perfil, String descripcion_perfil,
+			String poblacion_perfil, Set<Categoria> categoria) {
 		super();
 		this.nick_perfil = nick_perfil;
 		this.nombre_perfil = nombre_perfil;
 		this.genero_perfil = genero_perfil;
 		this.edad_perfil = edad_perfil;
-		this.descripcion = descripcion;
-		this.poblacion = poblacion;
+		this.descripcion_perfil = descripcion_perfil;
+		this.poblacion_perfil = poblacion_perfil;
 		this.categoria = categoria;
 	}
 
@@ -72,23 +72,23 @@ public class Perfil {
 	}
 
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDescripcion_perfil() {
+		return descripcion_perfil;
 	}
 
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescripcion_perfil(String descripcion_perfil) {
+		this.descripcion_perfil = descripcion_perfil;
 	}
 
 
-	public String getPoblacion() {
-		return poblacion;
+	public String getPoblacion_perfil() {
+		return poblacion_perfil;
 	}
 
 
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
+	public void setPoblacion_perfil(String poblacion_perfil) {
+		this.poblacion_perfil = poblacion_perfil;
 	}
 
 
@@ -105,8 +105,8 @@ public class Perfil {
 	@Override
 	public String toString() {
 		return "Perfil [nick_perfil=" + nick_perfil + ", nombre_perfil=" + nombre_perfil + ", genero_perfil="
-				+ genero_perfil + ", edad_perfil=" + edad_perfil + ", descripcion=" + descripcion + ", poblacion="
-				+ poblacion + ", categoria=" + categoria + "]";
+				+ genero_perfil + ", edad_perfil=" + edad_perfil + ", descripcion=" + descripcion_perfil + ", poblacion="
+				+ poblacion_perfil + ", categoria=" + categoria + "]";
 	}
 
 }
