@@ -1,12 +1,18 @@
 package com.luca.tinder.service;
 
+import javax.transaction.Transactional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.luca.tinder.dao.PerfilDao;
 import com.luca.tinder.model.Perfil;
 
+
+@Service
+@Transactional
 public class PerfilServiceImpl implements PerfilService {
 	
 	@Autowired
