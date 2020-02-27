@@ -31,6 +31,6 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [id_categoria=" + id_categoria + ", nombre_categoria=" + nombre_categoria + "]";
+		return "AlejandroCategoria [id_categoria=" + id_categoria + ", nombre_categoria=" + nombre_categoria + "]";
 	}
 }
