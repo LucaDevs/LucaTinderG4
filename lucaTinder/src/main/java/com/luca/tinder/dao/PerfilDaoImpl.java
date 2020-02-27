@@ -2,6 +2,7 @@ package com.luca.tinder.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +40,16 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		}
 		return true;
 	}
+	
+	public int numeroPerfiles() {
+		
+		int usuarios=0;
+		
+		Query query= entityManager.createNativeQuery("SELECT * from lucatinder.perfiles", Perfil.class );
+		usuarios = query.getResultList().size();
+		
+		return usuarios;
+	}
+	
 	
 }
