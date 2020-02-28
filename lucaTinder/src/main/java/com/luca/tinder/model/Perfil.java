@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -18,11 +20,17 @@ public class Perfil {
 	@GeneratedValue
 	@Column(name = "cod_perfil")
 	private int cod_perfil;
+	@NotEmpty
 	private String nick_perfil;
+	@NotEmpty
 	private String nombre_perfil;
+	//@NotEmpty
 	private char genero_perfil;
+	//@Size(min=18)
 	private int edad_perfil;
+	
 	private String descripcion_perfil;
+	
 	private String poblacion_perfil;
 	@ManyToMany
 	private Set<Categoria> categoria;

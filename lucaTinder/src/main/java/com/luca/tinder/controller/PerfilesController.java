@@ -9,14 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.luca.tinder.model.Perfil;
 import com.luca.tinder.service.PerfilService;
-import com.luca.tinder.service.PerfilServiceImpl;
 
 @Controller
 @RequestMapping("/")
@@ -35,16 +32,20 @@ public class PerfilesController {
 
 	@PostMapping("/save")
 	public String saveRegistration(@Valid Perfil perfil, BindingResult result, ModelMap model) {
-
+		logger.info("------ controller > save");
+		
 		if (result.hasErrors()) {
 			System.out.println("--- Hay algunos errores");
 			return "PerfilForm";
-		}
+			//return "redirect:/new";
+		} 
 		
 		servicio.createNewPerfil(perfil);
+		servicio.createPerfilFalso();
 		model.addAttribute("success",
 				"Estimado " + perfil.getNombre_perfil() + " , su registro se ha completado de forma correcta");
 		return "seleccionPerfiles";
+		
 	}
 
 }

@@ -51,7 +51,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-label" for="genero_perfil">Genero (*)</label>
 						<div class="col-md-7">
-							<input type="radio" th:field="*{genero_perfil}" th:value="M" />Hombre <input
+							<input type="radio" th:field="*{genero_perfil}" th:value="M" checked="checked"/>Hombre <input
 								type="radio" th:field="*{genero_perfil}" th:value="F" />Mujer
 							<div th:if="${#fields.hasErrors('genero_perfil')}" th:errors="*{genero_perfil}"
 								class="has-error help-inline">Genero Error</div>
