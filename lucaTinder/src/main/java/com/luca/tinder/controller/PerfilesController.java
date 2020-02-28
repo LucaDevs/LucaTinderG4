@@ -37,13 +37,12 @@ public class PerfilesController {
 		if (result.hasErrors()) {
 			System.out.println("--- Hay algunos errores");
 			return "PerfilForm";
-			//return "redirect:/new";
 		} 
 		
 		servicio.createNewPerfil(perfil);
 		servicio.createPerfilFalso();
-		model.addAttribute("success",
-				"Estimado " + perfil.getNombre_perfil() + " , su registro se ha completado de forma correcta");
+		model.addAttribute("success", "Estimado " + perfil.getNombre_perfil() 
+							+ " , su registro se ha completado de forma correcta");
 		return "seleccionPerfiles";
 		
 	}
