@@ -1,5 +1,8 @@
 package com.luca.tinder.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -17,7 +20,9 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	EntityManager entityManager;
 	
 	Logger logger= LoggerFactory.getLogger(PerfilDaoImpl.class);
-	public boolean CrearFalsosPerfiles() {
+	//Mover a paquetes utilidades
+	public HashMap<String, Perfil> CrearFalsosPerfiles() {
+		HashMap<String, Perfil> cuentas = new HashMap<String, Perfil>();
 		for(int i=0;i<10;i++) {
 			Perfil p=new Perfil();
 			Faker faker = new Faker();
@@ -27,28 +32,42 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 			
 			p.setNombre_perfil(faker.animal().name());
 			p.setNick_perfil(faker.animal().name());
-			p.setEdad_perfil((int)(Math.random()*90+18));
+			p.setEdad_perfil((int)((Math.random()*90)+18));
 			p.setPoblacion_perfil(faker.address().cityName());
 			if(azar==0) {
-			p.setGenero_perfil('M');
+				p.setGenero_perfil('M');
 			} else {
 				p.setGenero_perfil('H');
 			}
-			p.setDescripcion_perfil(faker.gameOfThrones().quote());
+			String desc = faker.company().catchPhrase();
+			if(desc.length() <= 100) {
+				p.setDescripcion_perfil(desc);
+			}else
+				p.setDescripcion_perfil(desc.substring(0, 99));
+			
+			cuentas.put(p.getNick_perfil(), p);
 			logger.info(p.toString());
 		
 		}
-		return true;
+		
+		return cuentas;
 	}
 	
-	public int numeroPerfiles() {
-		
-		int usuarios=0;
-		
-		Query query= entityManager.createNativeQuery("SELECT * from lucatinder.perfiles", Perfil.class );
-		usuarios = query.getResultList().size();
-		
-		return usuarios;
+	public boolean insertPerfilFalso() {
+		Map<String, Perfil> cuentas = this.CrearFalsosPerfiles();
+		for(Map.Entry<String, Perfil> entries : cuentas.entrySet()) {
+//			Query query = entityManager.createNativeQuery("INSERT INTO lucatinder.perfiles(nick_perfil, nombre_perfil, genero_perfil"
+//					+ "edad_perfil, descripcion_perfil) values (?,?,?,?,?)", Perfil.class);
+//			Perfil p = entries.getValue();
+//			query.setParameter(1, p.getNick_perfil());
+//			query.setParameter(2, p.getNombre_perfil());
+//			query.setParameter(3, p.getGenero_perfil());
+//			query.setParameter(4, p.getEdad_perfil());
+//			query.setParameter(5, p.getDescripcion_perfil());
+//			query.executeUpdate();
+			entityManager.persist(entries.getValue());
+		}
+		return true;
 	}
 	
 	

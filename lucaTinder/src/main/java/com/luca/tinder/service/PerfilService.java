@@ -6,4 +6,5 @@ public interface PerfilService {
 	
 	public void createNewPerfil(Perfil perfil);
 	public void createPerfilFalso();
+	public long numeroPerfiles();
 }

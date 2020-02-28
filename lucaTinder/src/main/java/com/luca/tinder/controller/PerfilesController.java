@@ -18,6 +18,9 @@ import com.luca.tinder.service.PerfilService;
 @Controller
 @RequestMapping("/")
 public class PerfilesController {
+	//Numero a partir del cual se dejarán de añadir perfiles falsos
+	private final long PERFILMIN = 20;
+	
 	@Autowired
 	private PerfilService servicio;
 	private static final Logger logger = LoggerFactory.getLogger(PerfilesController.class);
@@ -40,7 +43,8 @@ public class PerfilesController {
 		} 
 		
 		servicio.createNewPerfil(perfil);
-		servicio.createPerfilFalso();
+		if(servicio.numeroPerfiles()<PERFILMIN)
+			servicio.createPerfilFalso();
 		model.addAttribute("success", "Estimado " + perfil.getNombre_perfil() 
 							+ " , su registro se ha completado de forma correcta");
 		return "seleccionPerfiles";

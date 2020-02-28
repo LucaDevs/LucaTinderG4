@@ -1,6 +1,10 @@
 package com.luca.tinder.dao;
 
+import java.util.HashMap;
+
+import com.luca.tinder.model.Perfil;
+
 public interface PerfilDaoCustom {
-	public boolean CrearFalsosPerfiles();
-	public int numeroPerfiles();
+	public HashMap<String, Perfil> CrearFalsosPerfiles();
+	public boolean insertPerfilFalso();
 }
