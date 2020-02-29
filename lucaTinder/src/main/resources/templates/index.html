@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Static content -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<title>Index</title>
+</head>
+<body>
+
+	<div id="form-container">
+		<h2>LUCATINDER</h2>
+
+		<form method="post" th:object="${perfil}" th:action="@{/}">
+
+			<label for="nick_perfil">Nick Usuario:</label> <input type="text"
+				name="nick_perfil" th:field="*{nick_perfil}"> <input
+				type="submit" value="Iniciar sesion" class="btn btn-primary btn-sm">
+
+			<input type="submit" value="Registrarse"
+				class="btn btn-primary btn-sm">
+
+		</form>
+	</div>
+</body>
+</html>
