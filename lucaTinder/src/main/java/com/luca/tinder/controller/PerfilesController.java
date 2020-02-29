@@ -11,16 +11,28 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luca.tinder.model.Perfil;
 import com.luca.tinder.service.PerfilService;
 
 @Controller
-@RequestMapping("/")
 public class PerfilesController {
 	@Autowired
 	private PerfilService servicio;
 	private static final Logger logger = LoggerFactory.getLogger(PerfilesController.class);
+	
+	@GetMapping("/")
+	public String index(ModelMap model) {
+		logger.info("-- en INDEX");
+		return "index";
+	}
+	
+	@PostMapping("/selection")
+	public String seleccion(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
+		logger.info("-- en SELECCION");
+		return "seleccionPerfiles";
+	}
 
 	@GetMapping("/new")
 	public String createNewPerfil(ModelMap model) {
