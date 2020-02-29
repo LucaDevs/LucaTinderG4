@@ -34,7 +34,11 @@ public class PerfilServiceImpl implements PerfilService {
 	}
 	
 	public void createPerfilFalso() {
-		perfDao.CrearFalsosPerfiles();
+		perfDao.insertPerfilFalso();
+	}
+	
+	public long numeroPerfiles() {
+		return perfDao.count();
 	}
 	
 }
