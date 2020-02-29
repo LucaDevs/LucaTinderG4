@@ -41,4 +41,8 @@ public class PerfilServiceImpl implements PerfilService {
 		return perfDao.count();
 	}
 	
+	public void buscarPorNick(String nick) {
+		perfDao.buscarPorNick(nick);
+	}
+	
 }
