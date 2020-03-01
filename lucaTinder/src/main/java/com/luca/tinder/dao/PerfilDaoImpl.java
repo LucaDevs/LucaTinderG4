@@ -2,8 +2,6 @@ package com.luca.tinder.dao;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -73,10 +71,11 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	
 	public Perfil buscarPorNick(String nick) {
 		Perfil p = null;
-		Query query = entityManager.createNativeQuery("Select * lucatinder.perfiles where nick_perfil = ?", Perfil.class);
+		Query query = entityManager.createNativeQuery("SELECT * FROM lucatinder.perfiles where nick_perfil = ?", Perfil.class);
 		query.setParameter(1, nick);
-		if (query.getSingleResult() instanceof Perfil)
-			p = (Perfil) query.getSingleResult();
+		Object o = query.getSingleResult();
+		if (o instanceof Perfil)
+			p = (Perfil) o;
 		return p;
 	}
 }
