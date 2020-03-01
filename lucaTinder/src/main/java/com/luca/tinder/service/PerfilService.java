@@ -1,5 +1,7 @@
 package com.luca.tinder.service;
 
+import java.util.ArrayList;
+
 import com.luca.tinder.model.Perfil;
 
 public interface PerfilService {
@@ -8,4 +10,5 @@ public interface PerfilService {
 	public void createPerfilFalso();
 	public long numeroPerfiles();
 	public Perfil buscarPorNick(String nick);
+	public ArrayList<Perfil> getPerfiles();
 }

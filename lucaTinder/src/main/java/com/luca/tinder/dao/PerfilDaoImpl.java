@@ -1,5 +1,6 @@
 package com.luca.tinder.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.EntityManager;
@@ -78,5 +79,11 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		if (o instanceof Perfil)
 			p = (Perfil) o;
 		return p;
+	}
+	
+	public ArrayList<Perfil> getPerfiles(){
+		ArrayList<Perfil> perfiles = null;
+		//QUERY 
+		return perfiles;
 	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.luca.tinder.model.Perfil;
 import com.luca.tinder.service.PerfilService;
@@ -32,18 +33,25 @@ public class PerfilesController {
 		return "index";
 	}
 	
-	@PostMapping("/selection")
-	public String seleccion(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
-		logger.info("-- en SELECCION");
+	@PostMapping("/comprabateNick")
+	public String comprobarNick(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
+		logger.info("-- en COMPROBACION");
 		Perfil p = null;
 		p = servicio.buscarPorNick(nick_perfil);
 		if(p != null) {
 			model.addAttribute("perfil", p);
-			return "seleccionPerfiles";
+			return "redirect:/selection";
 		} else {
+			model.addAttribute("perfil", new Perfil());
 			return "index";
 		}
-		
+	}
+	
+	@GetMapping("/selection")
+	public String selection(ModelMap model) {
+		logger.info("-- en SELECCION");
+		model.addAttribute("perfilList", servicio.getPerfiles());
+		return "seleccionPerfiles";
 	}
 
 	@GetMapping("/new")
