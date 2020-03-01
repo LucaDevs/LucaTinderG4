@@ -1,5 +1,6 @@
 package com.luca.tinder.service;
 
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 import org.apache.logging.log4j.LogManager;
@@ -43,7 +44,11 @@ public class PerfilServiceImpl implements PerfilService {
 	
 	public Perfil buscarPorNick(String nick) {
 		Perfil p = null;
-		p = perfDao.buscarPorNick(nick);
+		try {
+			p = perfDao.buscarPorNick(nick);
+		} catch (NoResultException e) {
+			logger.warn("No hay usuario con ese nick");
+		}
 		return p;
 	}
 	

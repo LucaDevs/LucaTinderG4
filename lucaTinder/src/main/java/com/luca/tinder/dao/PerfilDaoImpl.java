@@ -3,6 +3,7 @@ package com.luca.tinder.dao;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -69,7 +70,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		return true;
 	}
 	
-	public Perfil buscarPorNick(String nick) {
+	public Perfil buscarPorNick(String nick) throws NoResultException{
 		Perfil p = null;
 		Query query = entityManager.createNativeQuery("SELECT * FROM lucatinder.perfiles where nick_perfil = ?", Perfil.class);
 		query.setParameter(1, nick);
