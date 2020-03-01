@@ -1,36 +1,42 @@
 .form-container {
-  position:fiexd;
-  width:50%;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #E8E1E1;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+	position: fiexd;
+	width: 50%;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #E8E1E1;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
-.floatRight{
-	float:right;
+.floatRight {
+	float: right;
 	margin-right: 18px;
 }
 
-.has-error{
-	color:red;
+.has-error {
+	color: red;
 }
 
-
-.success{
-  position:fiexd;
-  width:50%;
-  margin-left: 50px;
-  margin-top:20px;
-  padding: 20px;
-  background-color: #E8E1E1;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.success {
+	position: fiexd;
+	width: 50%;
+	margin-left: 50px;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #E8E1E1;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
-h1{
-	color:red;
+.card {
+	margin-top: 100px;
+	background-color: #E8E1E1;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+#registrarse{
+	margin-left: 200px;
 }

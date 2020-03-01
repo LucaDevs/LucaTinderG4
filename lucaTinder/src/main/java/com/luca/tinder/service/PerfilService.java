@@ -7,4 +7,5 @@ public interface PerfilService {
 	public void createNewPerfil(Perfil perfil);
 	public void createPerfilFalso();
 	public long numeroPerfiles();
+	public Perfil buscarPorNick(String nick);
 }

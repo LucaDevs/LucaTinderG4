@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<!-- Static content -->
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
 
@@ -10,19 +9,31 @@
 </head>
 <body>
 
-	<div id="form-container">
-		<h2>LUCATINDER</h2>
+	<div class="offset-md-3 col-md-6">
+		<div class="card">
+			<div class="card-header">
+				<h2 class="text-center">LUCATINDER</h2>
+			</div>
+			<div class="card-body">
+				<form method="post" th:object="${perfil}" th:action="@{/selection}">
 
-		<form method="post" th:object="${perfil}" th:action="@{/}">
+					<div class="form-group">
+						<div class="row">
+							<label for="nick_perfil">Nick Usuario:</label> <input type="text"
+								name="nick_perfil" th:field="*{nick_perfil}" />
+						</div>
+					</div>
 
-			<label for="nick_perfil">Nick Usuario:</label> <input type="text"
-				name="nick_perfil" th:field="*{nick_perfil}"> <input
-				type="submit" value="Iniciar sesion" class="btn btn-primary btn-sm">
-
-			<input type="submit" value="Registrarse"
-				class="btn btn-primary btn-sm">
-
-		</form>
+					<div class="form-group">
+						<div class="row offset-md-2">
+							<input type="submit" value="Iniciar sesion"
+								class="btn btn-primary btn-sm" /> <input type="submit"
+								value="Registrarse" id="registrarse" class="btn btn-link btn-sm" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

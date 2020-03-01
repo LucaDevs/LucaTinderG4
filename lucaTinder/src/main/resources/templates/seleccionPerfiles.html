@@ -12,25 +12,27 @@
 		<h2>
 			Seleccion de perfiles
 		</h2>
-		<table border="1">
+		<!--  <table border="1">
 		<tr>
-			<th>Nº</th>
-			<th>Usuario</th>
-			<th>Email</th>
-			<th>Acciones</th>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th>Descripcion</th>
+			<th>Poblacion</th>
 			</tr>
 
-			<c:forEach var="user" items="${userList}" varStatus="status">
+			<c:forEach var="perfil" items="${perfilList}" varStatus="status">
 				<tr>
 					<td>${status.index + 1}</td>
-					<td>${user.username}</td>
-					<td>${user.email}</td>
-					<td><a href="edit?id=${user.id}">Modificar</a>
+					<td>${perfil.nombre_perfil}</td>
+					<td>${perfil.edad_perfil}</td>
+					<td>${perfil.descripcion_perfil</td>
+					<td>${perfil.poblacion_prefil</td>
+					 <td><a href="edit?id=${user.id}">Modificar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.id}">Eliminar</a>
 					</td>
 				</tr>
 			</c:forEach>
-		</table>
+		</table> -->
 	</div>
 </body>
 </html>

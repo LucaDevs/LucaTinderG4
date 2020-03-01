@@ -28,13 +28,22 @@ public class PerfilesController {
 	@GetMapping("/")
 	public String index(ModelMap model) {
 		logger.info("-- en INDEX");
+		model.addAttribute("perfil", new Perfil());
 		return "index";
 	}
 	
 	@PostMapping("/selection")
 	public String seleccion(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
 		logger.info("-- en SELECCION");
-		return "seleccionPerfiles";
+		Perfil p = null;
+		p = servicio.buscarPorNick(nick_perfil);
+		if(p != null) {
+			model.addAttribute("perfil", p);
+			return "seleccionPerfiles";
+		} else {
+			return "index";
+		}
+		
 	}
 
 	@GetMapping("/new")
