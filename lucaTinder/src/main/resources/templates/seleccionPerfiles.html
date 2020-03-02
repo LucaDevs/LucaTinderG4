@@ -4,66 +4,45 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
-
 <title>Seleccion de Perfiles</title>
 </head>
 <body>
-	<div id="contenedor">
-		<h2>
-			Seleccion de perfiles
-		</h2>
-		<!--  <table border="1">
-		<tr>
-			<th>Nombre</th>
-			<th>Edad</th>
-			<th>Descripcion</th>
-			<th>Poblacion</th>
-			</tr>
-
-			<c:forEach var="perfil" items="${perfilList}" varStatus="status">
-				<tr>
-					<td>${status.index + 1}</td>
-					<td>${perfil.nombre_perfil}</td>
-					<td>${perfil.edad_perfil}</td>
-					<td>${perfil.descripcion_perfil</td>
-					<td>${perfil.poblacion_prefil</td>
-					 <td><a href="edit?id=${user.id}">Modificar</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.id}">Eliminar</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</table> -->
-		
-		<div class="table-responsive">
-	<table id="userList" class="table table-bordered table-hover table-striped">
-		<thead class="thead-light">
-		<tr>
-			<th scope="col">Nombre</th>
-			<th scope="col">Edad</th>
-			<th scope="col">Descripción</th>
-			<th scope="col">Población</th>
-			<th scope="col">Like</th>
-			<th scope="col">Dislike</th>
-			
-		</tr>
-		</thead>
-		<tbody>
-		<tr th:each="perfil: ${perfiles}">
-			<td th:text="${perfil.nombre_perfil}"></td>
-			<td th:text="${perfil.edad_perfil}"></td>
-			<td th:text="${perfil.descripcion_perfil}"></td>
-			<td th:text="${perfil.poblicion_perfil}"></td>
-			<td th:text="${user.email}"></td>
-			<td>
-					#
-			</td>
-			<td>
-					#
-			</td>
-		</tr>
-		</tbody>
-	</table>
-</div>   
+	<div class="card">
+		<div class="card-header">
+			<h2 class="text-center">Seleccion de perfiles</h2>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table id="userList"
+					class="table table-bordered table-hover table-striped">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Edad</th>
+							<th scope="col">Descripción</th>
+							<th scope="col">Población</th>
+							<th scope="col">Like</th>
+							<th scope="col">Dislike</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="perfil: ${perfiles}">
+							<td th:text="${perfil.nombre_perfil}"></td>
+							<td th:text="${perfil.edad_perfil}"></td>
+							<td th:text="${perfil.descripcion_perfil}"></td>
+							<td th:text="${perfil.poblacion_perfil}"></td>
+							<td>
+								<!-- <form method="post" th:object="${perfil}" th:action="@{"  -->
+								<!-- <button id="btnlike" class="btn">like</button> -->
+							</td>
+							<td>
+								<button id="btndislike" class="btn">dislike</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
