@@ -156,9 +156,9 @@ public class Perfil {
 			p.setEdad_perfil((int)((Math.random()*90)+18));
 			p.setPoblacion_perfil(faker.address().cityName());
 			if(azar==0) {
-				p.setGenero_perfil('M');
+				p.setGenero_perfil('F');
 			} else {
-				p.setGenero_perfil('H');
+				p.setGenero_perfil('M');
 			}
 			String desc = faker.company().catchPhrase();
 			if(desc.length() <= 100) {
