@@ -32,11 +32,10 @@
 							<td th:text="${perfil.descripcion_perfil}"></td>
 							<td th:text="${perfil.poblacion_perfil}"></td>
 							<td>
-								<!-- <form method="post" th:object="${perfil}" th:action="@{"  -->
-								<!-- <button id="btnlike" class="btn">like</button> -->
+								<a id="btnlike" class="btn btn-success btn-sm tamlikedislike">like</a>
 							</td>
 							<td>
-								<button id="btndislike" class="btn">dislike</button>
+								<a id="btndislike" class="btn btn-danger btn-sm tamlikedislike">dislike</a>
 							</td>
 						</tr>
 					</tbody>
