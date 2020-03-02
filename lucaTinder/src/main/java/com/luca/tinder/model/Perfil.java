@@ -2,14 +2,17 @@ package com.luca.tinder.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 
 @Entity
@@ -32,7 +35,10 @@ public class Perfil {
 	private String descripcion_perfil;
 	
 	private String poblacion_perfil;
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name="gustos",
+	joinColumns=@JoinColumn(name="cod_perfil"),
+	inverseJoinColumns=@JoinColumn(name="id_categoria"))
 	private Set<Categoria> categoria;
 	
 	
