@@ -19,6 +19,7 @@
 						<thead class="thead-light">
 							<tr>
 								<th scope="col">Nombre</th>
+								<th scope="col">Genero</th>
 								<th scope="col">Edad</th>
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
@@ -29,6 +30,7 @@
 						<tbody>
 							<tr th:each="perfil: ${perfiles}">
 								<td th:text="${perfil.nombre_perfil}"></td>
+								<td th:text="${perfil.genero_perfil}"></td>
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>

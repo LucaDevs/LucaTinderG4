@@ -59,4 +59,18 @@ public class PerfilServiceImpl implements PerfilService {
 		perfiles = perfDao.getPerfiles(p);
 		return perfiles;
 	}
+
+	//@Override
+	//public void like(int cod_perfil) {
+		//perfDao.gestionarLike(cod_perfil);
+		
+	//}
+
+	//@Override
+	//public void dislike(int cod_perfil) {
+		//perfDao.destionarDislike(cod_perfil);
+		
+	//}
+	
+	
 }
