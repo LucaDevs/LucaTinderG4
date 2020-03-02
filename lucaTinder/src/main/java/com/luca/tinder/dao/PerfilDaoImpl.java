@@ -86,4 +86,15 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		//QUERY 
 		return perfiles;
 	}
+
+	@Override
+	public ArrayList<Perfil> getPerfiles(Perfil p) {
+		ArrayList<Perfil> perfiles = null;
+		Query query = entityManager.createNativeQuery("Select * from perfiles where nick_perfil != ? and cod_perfil not in (select distinct usu2 from listas where perfil = ?)", Perfil.class);
+		query.setParameter(1, p.getNick_perfil());
+		query.setParameter(2, p.getCod_perfil());
+		perfiles = (ArrayList<Perfil>) query.getResultList();
+		
+		return perfiles;
+	}
 }

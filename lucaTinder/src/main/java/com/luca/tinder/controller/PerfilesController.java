@@ -33,7 +33,7 @@ public class PerfilesController {
 		return "index";
 	}
 	
-	@PostMapping("/comprabateNick")
+	@PostMapping("/comprobateNick")
 	public String comprobarNick(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
 		logger.info("-- en COMPROBACION");
 		Perfil p = null;
@@ -50,7 +50,8 @@ public class PerfilesController {
 	@GetMapping("/selection")
 	public String selection(ModelMap model) {
 		logger.info("-- en SELECCION");
-		model.addAttribute("perfilList", servicio.getPerfiles());
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		model.addAttribute("perfilList", servicio.getPerfiles(p));
 		return "seleccionPerfiles";
 	}
 

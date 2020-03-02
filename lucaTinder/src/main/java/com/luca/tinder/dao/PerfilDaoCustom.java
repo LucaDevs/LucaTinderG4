@@ -11,5 +11,5 @@ public interface PerfilDaoCustom {
 	public HashMap<String, Perfil> CrearFalsosPerfiles();
 	public boolean insertPerfilFalso();
 	public Perfil buscarPorNick(String nick) throws NoResultException;
-	public ArrayList<Perfil> getPerfiles();
+	public ArrayList<Perfil> getPerfiles(Perfil p);
 }

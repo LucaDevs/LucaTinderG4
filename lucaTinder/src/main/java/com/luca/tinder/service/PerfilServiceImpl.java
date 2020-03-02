@@ -54,9 +54,9 @@ public class PerfilServiceImpl implements PerfilService {
 		return p;
 	}
 	
-	public ArrayList<Perfil> getPerfiles(){
+	public ArrayList<Perfil> getPerfiles(Perfil p){
 		ArrayList<Perfil> perfiles = null;
-		perfiles = perfDao.getPerfiles();
+		perfiles = perfDao.getPerfiles(p);
 		return perfiles;
 	}
 }
