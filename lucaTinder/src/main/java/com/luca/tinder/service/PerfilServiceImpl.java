@@ -60,17 +60,11 @@ public class PerfilServiceImpl implements PerfilService {
 		return perfiles;
 	}
 
-	//@Override
-	//public void like(int cod_perfil) {
-		//perfDao.gestionarLike(cod_perfil);
-		
-	//}
+	@Override
+	public void likeDislike(Perfil p, int cod_perfil, int tipo_lista) {
+		perfDao.likeDislike(p, cod_perfil, tipo_lista);	
+	}
 
-	//@Override
-	//public void dislike(int cod_perfil) {
-		//perfDao.destionarDislike(cod_perfil);
-		
-	//}
-	
+
 	
 }

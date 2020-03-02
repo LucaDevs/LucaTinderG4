@@ -8,4 +8,6 @@ import com.luca.tinder.model.Perfil;
 @Repository
 public interface PerfilDao extends JpaRepository<Perfil, Integer>, PerfilDaoCustom{
 
+	
+
 }
