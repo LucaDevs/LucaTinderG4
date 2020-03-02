@@ -12,6 +12,7 @@ public interface PerfilService {
 	public Perfil buscarPorNick(String nick);
 	public ArrayList<Perfil> getPerfiles(Perfil p);
 	public void likeDislike(Perfil p, int cod_perfil, int tipo_lista);
+	public ArrayList<Perfil> getContactos(Perfil p);
 	
 	
 }

@@ -65,6 +65,13 @@ public class PerfilServiceImpl implements PerfilService {
 		perfDao.likeDislike(p, cod_perfil, tipo_lista);	
 	}
 
+	@Override
+	public ArrayList<Perfil> getContactos(Perfil p) {
+		ArrayList<Perfil> contactos = null;
+		contactos = perfDao.getContactos(p);
+		return contactos;
+	}
+
 
 	
 }
