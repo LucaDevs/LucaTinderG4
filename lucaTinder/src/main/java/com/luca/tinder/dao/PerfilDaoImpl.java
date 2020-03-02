@@ -59,6 +59,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void likeDislike(Perfil p, int cod_perfil, int tipo_lista) {
 		Query query = entityManager.createNativeQuery("Insert into lucatinder.listas(?,?,?) values (perfil, usu2, tipo_lista)");
 		query.setParameter(1, p.getCod_perfil());
@@ -66,5 +67,15 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		query.setParameter(3, tipo_lista);
 		query.executeUpdate();
 		
+=======
+	public ArrayList<Perfil> getContactos(Perfil p) {
+		ArrayList<Perfil> contactos = null;
+		Query query = entityManager.createNativeQuery("select distinct a.nombre_perfil, a.genero_perfil, a.edad_perfil, a.descripcion_perfil, a.poblacion_perfil "
+												+ "from perfiles a, listas b where b.tipo_lista = 1 and b.usu2 = a.cod_perfil\r\n and a.nick_perfil != 'Leo'", Perfil.class);
+		query.setParameter(1, p.getNick_perfil());
+		query.setParameter(2, p.getCod_perfil());
+		contactos = (ArrayList<Perfil>) query.getResultList();
+		return contactos;
+>>>>>>> branch 'development' of https://github.com/LucaDevs/LucaTinderG4.git
 	}
 }
