@@ -1,5 +1,6 @@
 package com.luca.tinder.model;
 
+import java.util.HashMap;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,10 +15,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.github.javafaker.Faker;
+
 
 @Entity
 @Table(name = "perfiles")
 public class Perfil {
+	
+	static Logger logger= LoggerFactory.getLogger(Perfil.class);
 	
 	@Id
 	@GeneratedValue
@@ -131,6 +139,39 @@ public class Perfil {
 
 	public void setCategoria(Set<Categoria> categoria) {
 		this.categoria = categoria;
+	}
+	
+	//Crear perfiles falsos
+	public static HashMap<String, Perfil> CrearFalsosPerfiles() {
+		HashMap<String, Perfil> cuentas = new HashMap<String, Perfil>();
+		for(int i=0;i<10;i++) {
+			Perfil p=new Perfil();
+			Faker faker = new Faker();
+			
+			
+			int azar=(int)(Math.random()*2);
+			
+			p.setNombre_perfil(faker.animal().name());
+			p.setNick_perfil(faker.animal().name());
+			p.setEdad_perfil((int)((Math.random()*90)+18));
+			p.setPoblacion_perfil(faker.address().cityName());
+			if(azar==0) {
+				p.setGenero_perfil('M');
+			} else {
+				p.setGenero_perfil('H');
+			}
+			String desc = faker.company().catchPhrase();
+			if(desc.length() <= 100) {
+				p.setDescripcion_perfil(desc);
+			}else
+				p.setDescripcion_perfil(desc.substring(0, 99));
+			
+			cuentas.put(p.getNick_perfil(), p);
+			logger.info(p.toString());
+		
+		}
+		
+		return cuentas;
 	}
 
 
