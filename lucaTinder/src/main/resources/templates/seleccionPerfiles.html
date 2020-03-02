@@ -7,39 +7,39 @@
 <title>Seleccion de Perfiles</title>
 </head>
 <body>
-	<div class="card">
-		<div class="card-header">
-			<h2 class="text-center">Seleccion de perfiles</h2>
-		</div>
-		<div class="card-body">
-			<div class="table-responsive">
-				<table id="userList"
-					class="table table-bordered table-hover table-striped">
-					<thead class="thead-light">
-						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Edad</th>
-							<th scope="col">Descripción</th>
-							<th scope="col">Población</th>
-							<th scope="col">Like</th>
-							<th scope="col">Dislike</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="perfil: ${perfiles}">
-							<td th:text="${perfil.nombre_perfil}"></td>
-							<td th:text="${perfil.edad_perfil}"></td>
-							<td th:text="${perfil.descripcion_perfil}"></td>
-							<td th:text="${perfil.poblacion_perfil}"></td>
-							<td>
-								<a id="btnlike" class="btn btn-success btn-sm tamlikedislike">like</a>
-							</td>
-							<td>
-								<a id="btndislike" class="btn btn-danger btn-sm tamlikedislike">dislike</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+	<div class="offset-md-2 col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h2 class="text-center">Seleccion de perfiles</h2>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="userList"
+						class="table table-bordered table-hover table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">Nombre</th>
+								<th scope="col">Edad</th>
+								<th scope="col">Descripción</th>
+								<th scope="col">Población</th>
+								<th scope="col" colspan="2"></th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="perfil: ${perfiles}">
+								<td th:text="${perfil.nombre_perfil}"></td>
+								<td th:text="${perfil.edad_perfil}"></td>
+								<td th:text="${perfil.descripcion_perfil}"></td>
+								<td th:text="${perfil.poblacion_perfil}"></td>
+								<td><a id="btnlike"
+									class="btn btn-success btn-sm tamlikedislike">like</a></td>
+								<td><a id="btndislike"
+									class="btn btn-danger btn-sm tamlikedislike">dislike</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
