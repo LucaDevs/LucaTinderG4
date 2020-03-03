@@ -114,7 +114,7 @@ public class PerfilesController {
 			servicio.createPerfilFalso();
 		model.addAttribute("success",
 				"Estimado " + perfil.getNombre_perfil() + " , su registro se ha completado de forma correcta");
-		return "seleccionPerfiles";
+		return "index";
 
 	}
 

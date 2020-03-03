@@ -7,6 +7,19 @@
 <title>Seleccion de Perfiles</title>
 </head>
 <body>
+
+	<div class="toolbar">
+		<img src="../imagenes/logo.jpg" width="40" /> <h3>LucaTinder</h3>
+
+		<div class="spacer">
+			<a href="" class="tabulacion">Ver perfiles</a>
+			<a href="/contactos" class="tabulacion">Contactos</a>
+			<a href="" class="tabulacion">Descartes</a>
+			<a href="" class="tabulacion">Match</a>
+			<a href="/" class="tabulacion">CERRAR SESION</a>
+		</div>
+	</div>
+
 	<div class="offset-md-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
@@ -24,7 +37,7 @@
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
 								<th scope="col" colspan="2"></th>
-								
+
 							</tr>
 						</thead>
 						<tbody>
@@ -35,9 +48,11 @@
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
 								<td><a id="btnlike"
-									class="btn btn-success btn-sm tamlikedislike" th:href="@{/checkLike/} + ${perfil.cod_perfil}">like</a></td>
+									class="btn btn-success btn-sm tamlikedislike"
+									th:href="@{/checkLike/} + ${perfil.cod_perfil}">like</a></td>
 								<td><a id="btndislike"
-									class="btn btn-danger btn-sm tamlikedislike" th:href="@{/checkDislike/} + ${perfil.cod_perfil}">dislike</a></td>
+									class="btn btn-danger btn-sm tamlikedislike"
+									th:href="@{/checkDislike/} + ${perfil.cod_perfil}">dislike</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -46,6 +61,6 @@
 		</div>
 	</div>
 	<br/>
-	
+
 </body>
 </html>
