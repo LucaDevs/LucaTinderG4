@@ -42,6 +42,10 @@ public class Perfil {
 	
 	private String descripcion_perfil;
 	
+	private String password;
+	
+	private boolean enabled;
+	
 	private String poblacion_perfil;
 	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="gustos",
@@ -141,6 +145,31 @@ public class Perfil {
 		this.categoria = categoria;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+
+	public void setCod_perfil(int cod_perfil) {
+		this.cod_perfil = cod_perfil;
+	}
+
+
 	//Crear perfiles falsos
 	public static HashMap<String, Perfil> CrearFalsosPerfiles() {
 		HashMap<String, Perfil> cuentas = new HashMap<String, Perfil>();
@@ -155,6 +184,7 @@ public class Perfil {
 			p.setNick_perfil(faker.animal().name());
 			p.setEdad_perfil((int)((Math.random()*90)+18));
 			p.setPoblacion_perfil(faker.address().cityName());
+			p.setPassword("123");
 			if(azar==0) {
 				p.setGenero_perfil('F');
 			} else {
@@ -165,7 +195,7 @@ public class Perfil {
 				p.setDescripcion_perfil(desc);
 			}else
 				p.setDescripcion_perfil(desc.substring(0, 99));
-			
+			p.setEnabled(true);
 			cuentas.put(p.getNick_perfil(), p);
 			logger.info(p.toString());
 		
@@ -177,9 +207,13 @@ public class Perfil {
 
 	@Override
 	public String toString() {
-		return "Perfil [nick_perfil=" + nick_perfil + ", nombre_perfil=" + nombre_perfil + ", genero_perfil="
-				+ genero_perfil + ", edad_perfil=" + edad_perfil + ", descripcion=" + descripcion_perfil + ", poblacion="
+		return "Perfil [cod_perfil=" + cod_perfil + ", nick_perfil=" + nick_perfil + ", nombre_perfil=" + nombre_perfil
+				+ ", genero_perfil=" + genero_perfil + ", edad_perfil=" + edad_perfil + ", descripcion_perfil="
+				+ descripcion_perfil + ", password=" + password + ", enabled=" + enabled + ", poblacion_perfil="
 				+ poblacion_perfil + ", categoria=" + categoria + "]";
 	}
+
+
+	
 
 }
