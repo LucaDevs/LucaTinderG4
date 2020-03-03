@@ -6,21 +6,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.luca.tinder.model.Perfil;
 import com.luca.tinder.service.PerfilService;
 
 @Controller
+@SessionAttributes("perfil")
 public class PerfilesController {
 	// Numero a partir del cual se dejarán de añadir perfiles falsos
 	private final long PERFILMIN = 20;
@@ -36,31 +36,46 @@ public class PerfilesController {
 		return "index";
 	}
 
-	@ModelAttribute("perfil")
+	
 	@PostMapping("/comprobateNick")
-	public RedirectView comprobarNick(ModelMap model, @RequestParam("nick_perfil") String nick_perfil,
-			RedirectAttributes attributes) {
+	public String comprobarNick(ModelMap model, @RequestParam("nick_perfil") String nick_perfil) {
 		logger.info("-- en COMPROBACION");
 
 		Perfil p = servicio.buscarPorNick(nick_perfil);
 
 		if (p != null) {
-
-			
-			attributes.addFlashAttribute("perfil", p);
-			return new RedirectView("selection");
+			model.addAttribute("perfil", p);
+			return "redirect:/selection";
 		} else {
-			attributes.addFlashAttribute("perfil", new Perfil());
-			return new RedirectView("index");
+			model.addAttribute("perfil", new Perfil());
+			return "index";
 		}
 
 	}
-
+	
 	@GetMapping("/selection")
 	public String selection(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
 		logger.info("------- Seleccion (entrando) " + perfil);
 		model.addAttribute("perfiles", servicio.getPerfiles(perfil));
 		return "seleccionPerfiles";
+	}
+	
+	@GetMapping("/checkLike/{id}")
+	public String checkLike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		logger.info(p.toString());
+		logger.info("-- en CHECK" + perfil);
+		servicio.likeDislike(p,cod_perfil,1);
+		return "redirect:/selection";
+	}
+	
+	@GetMapping("/checkDislike/{id}")
+	public String checkDislike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		logger.info(p.toString());
+		logger.info("-- en CHECK" + perfil);
+		servicio.likeDislike(p,cod_perfil,2);
+		return "redirect:/selection";
 	}
 
 	@GetMapping("/new")

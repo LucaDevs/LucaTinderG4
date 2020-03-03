@@ -60,7 +60,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 
 	@Override
 	public void likeDislike(Perfil p, int cod_perfil, int tipo_lista) {
-		Query query = entityManager.createNativeQuery("Insert into lucatinder.listas(?,?,?) values (perfil, usu2, tipo_lista)");
+		Query query = entityManager.createNativeQuery("Insert into lucatinder.listas(perfil, usu2, tipo_lista) values (?,?,?)");
 		query.setParameter(1, p.getCod_perfil());
 		query.setParameter(2, cod_perfil);
 		query.setParameter(3, tipo_lista);
