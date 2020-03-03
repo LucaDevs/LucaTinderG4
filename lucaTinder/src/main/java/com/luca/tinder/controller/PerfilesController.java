@@ -57,6 +57,7 @@ public class PerfilesController {
 	public String selection(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
 		logger.info("------- Seleccion (entrando) " + perfil);
 		model.addAttribute("perfiles", servicio.getPerfiles(perfil));
+		model.addAttribute("contactos", servicio.getContactos(perfil));
 		return "seleccionPerfiles";
 	}
 	

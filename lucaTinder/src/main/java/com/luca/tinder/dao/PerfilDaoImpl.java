@@ -70,7 +70,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	@Override
 	public ArrayList<Perfil> getContactos(Perfil p) {
 		ArrayList<Perfil> contactos = null;
-		Query query = entityManager.createNativeQuery("select distinct a.nombre_perfil, a.genero_perfil, a.edad_perfil, a.descripcion_perfil, a.poblacion_perfil from perfiles a, listas b where b.tipo_lista = 1 and b.usu2 = a.cod_perfil and b.perfil = ? and a.nick_perfil != ?", Perfil.class);
+		Query query = entityManager.createNativeQuery("select distinct * from lucatinder.perfiles a, lucatinder.listas b where b.tipo_lista = 1 and b.usu2 = a.cod_perfil and b.perfil = ? and a.nick_perfil != ?", Perfil.class);
 		query.setParameter(1, p.getCod_perfil());
 		query.setParameter(2, p.getNick_perfil());
 		contactos = (ArrayList<Perfil>) query.getResultList();
