@@ -67,6 +67,13 @@ public class PerfilesController {
 		return "contactos";
 	}
 	
+	@GetMapping("/descartes")
+	public String mostrarDescartes(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando descartes ");
+		model.addAttribute("descartes", servicio.getDescartes(perfil));
+		return "descartes";
+	}
+	
 	@GetMapping("/checkLike/{id}")
 	public String checkLike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
 		Perfil p = (Perfil) model.getAttribute("perfil");
