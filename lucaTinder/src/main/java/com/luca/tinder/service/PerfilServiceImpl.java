@@ -80,6 +80,13 @@ public class PerfilServiceImpl implements PerfilService {
 		return contactos;
 	}
 
+	@Override
+	public ArrayList<Perfil> getMatch(Perfil p) {
+		ArrayList<Perfil> contactos=null;
+		contactos=perfDao.getMatch(p);
+		return contactos;
+	}
+
 
 	
 }

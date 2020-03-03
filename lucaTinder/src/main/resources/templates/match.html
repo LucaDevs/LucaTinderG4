@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<title>Match</title>
+</head>
+<body>
+
+	<div class="toolbar">
+		<img src="../imagenes/logo.jpg" width="40" />
+		<h3>LucaTinder</h3>
+
+		<div class="spacer">
+			<a href="/selection" class="tabulacion">Ver perfiles</a>
+			<a href="" class="tabulacion">Contactos</a>
+			<a href="/descartes" class="tabulacion">Descartes</a>
+			<a href="/match" class="tabulacion">Match</a>
+			<a href="/" class="tabulacion">CERRAR SESION</a>
+		</div>
+	</div>
+
+	<div class="offset-md-2 col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<h2 class="text-center">Perfiles con Match</h2>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="userList"
+						class="table table-bordered table-hover table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">Nombre</th>
+								<th scope="col">Genero</th>
+								<th scope="col">Edad</th>
+								<th scope="col">Descripción</th>
+								<th scope="col">Población</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="perfil: ${match}">
+								<td th:text="${perfil.nombre_perfil}"></td>
+								<td th:text="${perfil.genero_perfil}"></td>
+								<td th:text="${perfil.edad_perfil}"></td>
+								<td th:text="${perfil.descripcion_perfil}"></td>
+								<td th:text="${perfil.poblacion_perfil}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+</body>
+</html>

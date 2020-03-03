@@ -86,4 +86,11 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		contactos = (ArrayList<Perfil>) query.getResultList();
 		return contactos;
 	}
+
+	@Override
+	public ArrayList<Perfil> getMatch(Perfil p) {
+		ArrayList<Perfil> contactos = null;
+		
+		return contactos;
+	}
 }
