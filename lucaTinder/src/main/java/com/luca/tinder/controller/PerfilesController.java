@@ -66,7 +66,16 @@ public class PerfilesController {
 		logger.info(p.toString());
 		logger.info("-- en CHECK" + perfil);
 		servicio.likeDislike(p,cod_perfil,1);
-		return "seleccionPerfiles";
+		return "redirect:/selection";
+	}
+	
+	@GetMapping("/checkDislike/{id}")
+	public String checkDislike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		logger.info(p.toString());
+		logger.info("-- en CHECK" + perfil);
+		servicio.likeDislike(p,cod_perfil,2);
+		return "redirect:/selection";
 	}
 
 	@GetMapping("/new")
