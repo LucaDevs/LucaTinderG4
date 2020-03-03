@@ -12,4 +12,5 @@ public interface PerfilDaoCustom {
 	public ArrayList<Perfil> getPerfiles(Perfil p);
 	void likeDislike(Perfil p, int cod_perfil, int tipo_lista);
 	public ArrayList<Perfil> getContactos(Perfil p);
+	public ArrayList<Perfil> getDescartes(Perfil p);
 } 

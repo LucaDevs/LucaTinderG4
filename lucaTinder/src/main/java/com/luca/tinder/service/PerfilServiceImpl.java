@@ -72,6 +72,14 @@ public class PerfilServiceImpl implements PerfilService {
 		return contactos;
 	}
 
+	@Override
+	public ArrayList<Perfil> getDescartes(Perfil p) {
+		ArrayList<Perfil> contactos=null;
+		contactos=perfDao.getDescartes(p);
+
+		return contactos;
+	}
+
 
 	
 }

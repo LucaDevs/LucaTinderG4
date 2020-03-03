@@ -76,4 +76,14 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		contactos = (ArrayList<Perfil>) query.getResultList();
 		return contactos;
 	}
+	
+	@Override
+	public ArrayList<Perfil> getDescartes(Perfil p) {
+		ArrayList<Perfil> contactos = null;
+		Query query = entityManager.createNativeQuery("select distinct * from lucatinder.perfiles a, lucatinder.listas b where b.tipo_lista = 2 and b.usu2 = a.cod_perfil and b.perfil = ? and a.nick_perfil != ?", Perfil.class);
+		query.setParameter(1, p.getCod_perfil());
+		query.setParameter(2, p.getNick_perfil());
+		contactos = (ArrayList<Perfil>) query.getResultList();
+		return contactos;
+	}
 }
