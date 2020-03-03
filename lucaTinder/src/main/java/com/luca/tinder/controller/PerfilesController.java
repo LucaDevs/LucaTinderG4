@@ -57,8 +57,14 @@ public class PerfilesController {
 	public String selection(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
 		logger.info("------- Seleccion (entrando) " + perfil);
 		model.addAttribute("perfiles", servicio.getPerfiles(perfil));
-		model.addAttribute("contactos", servicio.getContactos(perfil));
 		return "seleccionPerfiles";
+	}
+	
+	@GetMapping("/contactos")
+	public String mostrarContactos(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando contactos ");
+		model.addAttribute("contactos", servicio.getContactos(perfil));
+		return "contactos";
 	}
 	
 	@GetMapping("/checkLike/{id}")
