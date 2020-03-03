@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
-<link rel="stylesheet" th:href="@{/css/style.css}" />
-<title>Seleccion de Perfiles</title>
+<meta charset="ISO-8859-1">
+<title>Contactos</title>
 </head>
 <body>
-	<div class="offset-md-2 col-md-8">
+
+<div class="offset-md-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-				<h2 class="text-center">Seleccion de perfiles</h2>
+				<h2 class="text-center">Perfiles de tu gusto</h2>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -21,23 +20,18 @@
 								<th scope="col">Nombre</th>
 								<th scope="col">Genero</th>
 								<th scope="col">Edad</th>
-								<th scope="col">DescripciÃ³n</th>
-								<th scope="col">PoblaciÃ³n</th>
-								<th scope="col" colspan="2"></th>
+								<th scope="col">Descripción</th>
+								<th scope="col">Población</th>
 								
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="perfil: ${perfiles}">
+							<tr th:each="perfil: ${contactos}">
 								<td th:text="${perfil.nombre_perfil}"></td>
 								<td th:text="${perfil.genero_perfil}"></td>
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
-								<td><a id="btnlike"
-									class="btn btn-success btn-sm tamlikedislike" th:href="@{/checkLike/} + ${perfil.cod_perfil}">like</a></td>
-								<td><a id="btndislike"
-									class="btn btn-danger btn-sm tamlikedislike" th:href="@{/checkDislike/} + ${perfil.cod_perfil}">dislike</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -45,6 +39,6 @@
 			</div>
 		</div>
 	</div>
-	
+	<br/>
 </body>
 </html>
