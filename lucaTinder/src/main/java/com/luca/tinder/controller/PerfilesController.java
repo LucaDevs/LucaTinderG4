@@ -73,6 +73,12 @@ public class PerfilesController {
 		model.addAttribute("descartes", servicio.getDescartes(perfil));
 		return "descartes";
 	}
+	@GetMapping("/match")
+	public String mostrarMatch(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando match ");
+		model.addAttribute("match", servicio.getMatch(perfil));
+		return "match";
+	}
 	
 	@GetMapping("/checkLike/{id}")
 	public String checkLike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
