@@ -80,6 +80,14 @@ public class PerfilServiceImpl implements PerfilService {
 		return contactos;
 	}
 
+	@Override
+	public ArrayList<Perfil> cargarMiperfil(Perfil p) {
+		ArrayList<Perfil> miperfil = null;
+		miperfil = perfDao.cargarMiperfil(p);
+		return miperfil;
+		
+	}
+
 
 	
 }

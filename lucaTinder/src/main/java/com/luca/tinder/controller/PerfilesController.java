@@ -117,5 +117,12 @@ public class PerfilesController {
 		return "index";
 
 	}
+	
+	@GetMapping("/miperfil")
+	public String cargarMiperfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando perfil ");
+		model.addAttribute("perfil", servicio.cargarMiperfil(perfil));
+		return "perfil";
+	}
 
 }
