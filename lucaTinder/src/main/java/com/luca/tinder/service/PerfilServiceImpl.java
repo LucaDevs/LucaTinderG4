@@ -81,10 +81,14 @@ public class PerfilServiceImpl implements PerfilService {
 	}
 
 	@Override
-	public ArrayList<Perfil> cargarMiperfil(Perfil p) {
-		ArrayList<Perfil> miperfil = null;
-		miperfil = perfDao.cargarMiperfil(p);
-		return miperfil;
+	public Perfil cargarMiperfil(String nick) {
+		Perfil p = null;
+		try {
+			p = perfDao.buscarPorNick(nick);
+		} catch (NoResultException e) {
+			logger.warn("No hay usuario con ese nick");
+		}
+		return p;
 		
 	}
 

@@ -14,6 +14,6 @@ public interface PerfilService {
 	public void likeDislike(Perfil p, int cod_perfil, int tipo_lista);
 	public ArrayList<Perfil> getContactos(Perfil p);
 	public  ArrayList<Perfil> getDescartes(Perfil p);
-	public ArrayList<Perfil> cargarMiperfil(Perfil p);
+	public Perfil cargarMiperfil(String nick);
 	
 }

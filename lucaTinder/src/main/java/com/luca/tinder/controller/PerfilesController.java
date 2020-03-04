@@ -119,10 +119,18 @@ public class PerfilesController {
 	}
 	
 	@GetMapping("/miperfil")
-	public String cargarMiperfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
-		logger.info("------- Mostrando perfil ");
-		model.addAttribute("perfil", servicio.cargarMiperfil(perfil));
-		return "perfil";
+	public String cargarMiperfil(ModelMap model, @ModelAttribute("nick_perfil") String nick_perfil) {
+		logger.info("-- en COMPROBACION");
+
+		Perfil p = servicio.cargarMiperfil(nick_perfil);
+
+		if (p != null) {
+			model.addAttribute("perfil", p);
+			return "redirect:/selection";
+		} else {
+			model.addAttribute("perfil", servicio.cargarMiperfil(nick_perfil));
+			return "miperfil";
+		}
 	}
 
 }
