@@ -81,6 +81,13 @@ public class PerfilServiceImpl implements PerfilService {
 	}
 
 	@Override
+	public ArrayList<Perfil> getMatch(Perfil p) {
+		ArrayList<Perfil> contactos=null;
+		contactos=perfDao.getMatch(p);
+		return contactos;
+	}
+
+	@Override
 	public ArrayList<Perfil> cargarMiperfil(Perfil p) {
 		ArrayList<Perfil> miperfil = null;
 		miperfil = perfDao.cargarMiperfil(p);
