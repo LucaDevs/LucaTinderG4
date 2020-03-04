@@ -46,11 +46,28 @@ public class PerfilesControllerRest {
 		        .body("la operacion  se realizo correctamente");
 	}
 	
+	@GetMapping("/selection")
+	Collection<Perfil> seleccionarPerfiles(@RequestBody Perfil perfil) {
+		return this.servicio.getPerfiles(perfil);
+	}
 	
 	@GetMapping("/contactos")
 	Collection<Perfil> mostrarContactos(@RequestBody Perfil perfil) {
 		return this.servicio.getContactos(perfil);
 	}
+	
+	@GetMapping("/descartes")
+	Collection<Perfil> mostrarDescartes(@RequestBody Perfil perfil) {
+		return this.servicio.getDescartes(perfil);
+	}
+	
+	@GetMapping("/miperfil")
+	Collection<Perfil> miPerfil(@RequestBody Perfil perfil) {
+		return this.servicio.cargarMiperfil(perfil);
+	}
+	
+	
+	
 	
 
 }
