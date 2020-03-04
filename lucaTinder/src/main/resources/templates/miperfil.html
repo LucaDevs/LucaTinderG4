@@ -4,19 +4,34 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/js/javascript.js}" />
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#ocultarContMod").on('click', function() {
+        $("#contenedorModificar").hide();
+        return false;
+    });
+ 
+    $("#mostrarContMod").on('click', function() {
+        $("#contenedorModificar").show();
+        return false;
+    });
+});
+</script>
 <title>Mi perfil</title>
 </head>
 <body>
 
 	<div class="toolbar">
-		<img src="../imagenes/logo.jpg" width="40" /> <h3>LucaTinder</h3>
+		<img src="../imagenes/logo.jpg" width="40" />
+		<h3>LucaTinder</h3>
 
 		<div class="spacer">
-		<a href="" class="tabulacion">MI PERFIL</a>
-			<a href="/selection" class="tabulacion">Ver perfiles</a>
-			<a href="/contactos" class="tabulacion">Contactos</a>
-			<a href="/descartes" class="tabulacion">Descartes</a>
-			<a href="" class="tabulacion">Match</a>
+			<a href="" class="tabulacion">MI PERFIL</a> <a href="/selection"
+				class="tabulacion">Ver perfiles</a> <a href="/contactos"
+				class="tabulacion">Contactos</a> <a href="/descartes"
+				class="tabulacion">Descartes</a> <a href="" class="tabulacion">Match</a>
 			<a href="/" class="tabulacion">CERRAR SESION</a>
 		</div>
 	</div>
@@ -37,6 +52,7 @@
 								<th scope="col">Edad</th>
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
+								<th scope="col">Gustos</th>
 
 							</tr>
 						</thead>
@@ -47,14 +63,26 @@
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
+								<td th:text="${perfil.categoria}"></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			<div class="card-footer">
+			<br/>
+				<div class="form-group text-center">
+					<input type="submit" value="MODIFICAR LOS DATOS" class="btn btn-primary btn-sm" id="mostrarContMod" /> 
+					<!--<input type="submit" value="CAMBIAR COMTRASEÑA" class="btn btn-primary btn-sm" /> -->
+					<input type="submit" value="DAR DE BAJA EL USUARIO" class="btn btn-primary btn-sm" />
+				</div>
+			</div>
 		</div>
 	</div>
-	<br/>
-
+	<br />
+	<div id="contenedorModificar" class="card" style="display:none;">
+		hola
+		<a href="" id="ocultarContMod">salir</a>
+	</div>
 </body>
 </html>
