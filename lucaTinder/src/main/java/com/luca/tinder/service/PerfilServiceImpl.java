@@ -94,7 +94,11 @@ public class PerfilServiceImpl implements PerfilService {
 		return miperfil;
 		
 	}
-
-
+	@Override
+	public boolean editarPerfil(Perfil p, Perfil old) {
+		p.setCod_perfil(old.getCod_perfil());
+		p.setNick_perfil(old.getNick_perfil());
+		return perfDao.editarPerfil(p);
+	}
 	
 }

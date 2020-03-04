@@ -102,7 +102,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 
 		return contactos;
 	}
-
+	@Override
 	public ArrayList<Perfil> cargarMiperfil(Perfil p) {
 		ArrayList<Perfil> miperfil = null;
 		Query query = entityManager.createNativeQuery("select * from lucatinder.perfiles where nick_perfil = ?",
@@ -111,5 +111,19 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 		miperfil = (ArrayList<Perfil>) query.getResultList();
 		return miperfil;
 
+	}
+	
+	public boolean editarPerfil(Perfil p) {
+		Query query = entityManager.createNativeQuery("Update lucatinder.perfiles set nombre_perfil = ?, genero_perfil=?"
+				+ "edad_perfil=?, descripcion_perfil=?, poblacion_perfil=? where nick_perfil=?");
+		query.setParameter(1, p.getNombre_perfil());
+		query.setParameter(2, p.getGenero_perfil());
+		query.setParameter(3, p.getEdad_perfil());
+		query.setParameter(4, p.getDescripcion_perfil());
+		query.setParameter(5, p.getPoblacion_perfil());
+		query.setParameter(6, p.getNick_perfil());
+		query.executeUpdate();
+		
+		return true;
 	}
 }
