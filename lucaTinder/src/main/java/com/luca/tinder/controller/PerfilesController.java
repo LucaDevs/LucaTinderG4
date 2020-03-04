@@ -121,8 +121,8 @@ public class PerfilesController {
 	@GetMapping("/miperfil")
 	public String cargarMiperfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
 		logger.info("------- Mostrando perfil ");
-		model.addAttribute("perfil", servicio.cargarMiperfil(perfil));
-		return "perfil";
+		model.addAttribute("miperfil", servicio.cargarMiperfil(perfil));
+		return "miperfil";
 	}
 
 }

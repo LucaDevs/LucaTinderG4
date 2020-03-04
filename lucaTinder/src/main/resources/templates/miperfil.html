@@ -36,23 +36,16 @@
 								<th scope="col">Edad</th>
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
-								<th scope="col" colspan="2"></th>
-								<!-- <th scope="col">Rol</th>
-								<th scope="col">Password</th>
-								<th scope="col">Enabled</th>  -->
 
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="perfil: ${perfiles}">
+							<tr th:each="perfil: ${miperfil}">
 								<td th:text="${perfil.nombre_perfil}"></td>
 								<td th:text="${perfil.genero_perfil}"></td>
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
-								<!-- <td th:text="${perfil.rol_perfil}"></td>
-								<td th:text="${perfil.password}"></td>
-								<td th:text="${perfil.enabled}"></td>  -->
 							</tr>
 						</tbody>
 					</table>
