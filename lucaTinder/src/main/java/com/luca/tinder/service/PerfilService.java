@@ -15,5 +15,7 @@ public interface PerfilService {
 	public ArrayList<Perfil> getContactos(Perfil p);
 	public  ArrayList<Perfil> getDescartes(Perfil p);
 	public  ArrayList<Perfil> getMatch(Perfil p);
+	public ArrayList<Perfil> cargarMiperfil(Perfil p);
+	
 	
 }
