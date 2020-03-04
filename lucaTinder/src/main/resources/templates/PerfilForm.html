@@ -13,7 +13,7 @@
 		<img src="../imagenes/logo.jpg" width="40" /> <h3>LucaTinder</h3>
 	</div>
 	
-	<div class="offset-md-3 col-md-6">
+	<div class="offset-md-4 col-md-4">
 		<div class="card">
 			<div class="card-header">
 				<h2 class="text-center">Alta Perfil</h2>
@@ -27,7 +27,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="nick_perfil">Nick
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="text" th:field="*{nick_perfil}"
 									class="form-control input-sm" />
 
@@ -42,7 +42,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="nombre_perfil">Nombre
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="text" th:field="*{nombre_perfil}"
 									class="form-control input-sm" />
 								<div th:if="${#fields.hasErrors('nombre_perfil')}"
@@ -56,7 +56,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="genero_perfil">Genero
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="radio" th:field="*{genero_perfil}" th:value="M"
 									checked="checked" />Hombre <input type="radio"
 									th:field="*{genero_perfil}" th:value="F" />Mujer
@@ -71,7 +71,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="edad_perfil">Edad
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="text" th:field="*{edad_perfil}"
 									class="form-control input-sm" />
 								<div th:if="${#fields.hasErrors('edad_perfil')}"
@@ -85,7 +85,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="descripcion_perfil">Descripcion
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="text" th:field="*{descripcion_perfil}"
 									class="form-control input-sm" />
 								<div th:if="${#fields.hasErrors('descripcion_perfil')}"
@@ -99,7 +99,7 @@
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-label" for="poblacion_perfil">Poblacion
 								(*)</label>
-							<div class="col-md-7">
+							<div class="col-md-12">
 								<input type="text" th:field="*{poblacion_perfil}"
 									class="form-control input-sm" />
 								<div th:if="${#fields.hasErrors('poblacion_perfil')}"
