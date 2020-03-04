@@ -143,7 +143,7 @@ public class PerfilesController {
 			BindingResult result, @ModelAttribute("perfilOld") Perfil perfilViejo) {
 		logger.info("------- Editando Perfil ");
 		model.addAttribute("perfil", new Perfil());
-		model.addAttribute("miperfil", servicio.editarPerfil(perfil, perfilViejo));
+		servicio.editarPerfil(perfil, perfilViejo);
 		model.addAttribute("perfil", servicio.buscarPorNick(perfilViejo.getNick_perfil()));
 		return "redirect:/miperfil";
 	}
