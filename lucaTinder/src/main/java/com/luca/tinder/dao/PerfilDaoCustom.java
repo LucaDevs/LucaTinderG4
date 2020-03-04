@@ -15,4 +15,5 @@ public interface PerfilDaoCustom {
 	public ArrayList<Perfil> getDescartes(Perfil p);
 	public ArrayList<Perfil> getMatch(Perfil p);
 	public ArrayList<Perfil> cargarMiperfil(Perfil p);
+	public boolean editarPerfil(Perfil p);
 } 

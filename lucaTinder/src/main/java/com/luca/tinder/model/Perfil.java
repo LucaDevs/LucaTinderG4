@@ -68,6 +68,11 @@ public class Perfil {
 		this.categoria = categoria;
 	}
 
+	public void setCod_perfil(int cod_perfil) {
+		this.cod_perfil = cod_perfil;
+	}
+
+
 	public int getCod_perfil() {
 		return cod_perfil;
 	}

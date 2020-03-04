@@ -16,6 +16,6 @@ public interface PerfilService {
 	public  ArrayList<Perfil> getDescartes(Perfil p);
 	public  ArrayList<Perfil> getMatch(Perfil p);
 	public ArrayList<Perfil> cargarMiperfil(Perfil p);
-	
+	public boolean editarPerfil(Perfil p, Perfil perfilViejo);
 	
 }
