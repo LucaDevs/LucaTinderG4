@@ -137,6 +137,16 @@ public class PerfilesController {
 		model.addAttribute("perfilOld", perfil);
 		return "miperfil";
 	}
+	
+	@GetMapping("/eliminar/{id}")
+	public String eliminarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		logger.info(p.toString());
+		logger.info("-- eliminando" + perfil);
+		servicio.eliminarPerfil(p);
+		model.addAttribute("perfil", new Perfil());
+		return "redirect:/";
+	}
 
 	@PostMapping("/editarPerfil")
 	public String editarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil,

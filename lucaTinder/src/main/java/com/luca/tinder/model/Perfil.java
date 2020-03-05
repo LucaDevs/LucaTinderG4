@@ -158,7 +158,7 @@ public class Perfil {
 			
 			p.setNombre_perfil(faker.animal().name());
 			p.setNick_perfil(faker.animal().name());
-			p.setEdad_perfil((int)((Math.random()*90)+18));
+			p.setEdad_perfil(18 + (int)((Math.random()*(90-18))));
 			p.setPoblacion_perfil(faker.address().cityName());
 			if(azar==0) {
 				p.setGenero_perfil('F');
