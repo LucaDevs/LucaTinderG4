@@ -18,7 +18,7 @@ import com.luca.tinder.model.Perfil;
 import com.luca.tinder.service.PerfilService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/perfilrest")
 public class PerfilesControllerRest {
 	
