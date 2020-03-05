@@ -73,6 +73,11 @@ public class Perfil {
 		this.categoria = categoria;
 	}
 
+	public void setCod_perfil(int cod_perfil) {
+		this.cod_perfil = cod_perfil;
+	}
+
+
 	public int getCod_perfil() {
 		return cod_perfil;
 	}
@@ -158,7 +163,7 @@ public class Perfil {
 			
 			p.setNombre_perfil(faker.animal().name());
 			p.setNick_perfil(faker.animal().name());
-			p.setEdad_perfil((int)((Math.random()*90)+18));
+			p.setEdad_perfil(18 + (int)((Math.random()*(90-18))));
 			p.setPoblacion_perfil(faker.address().cityName());
 			if(azar==0) {
 				p.setGenero_perfil('F');

@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
-<title>Seleccion de Perfiles</title>
+<title>Match</title>
 </head>
 <body>
 
 	<div class="toolbar">
-		<img src="../imagenes/logo.jpg" width="40" /> <h3>LucaTinder</h3>
+		<img src="../imagenes/logo.jpg" width="40" />
+		<h3>LucaTinder</h3>
 
 		<div class="spacer">
-			<a href="/miperfil" class="tabulacion">MI PERFIL</a>
 			<a href="/selection" class="tabulacion">Ver perfiles</a>
 			<a href="/contactos" class="tabulacion">Contactos</a>
 			<a href="/descartes" class="tabulacion">Descartes</a>
@@ -24,7 +24,7 @@
 	<div class="offset-md-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-				<h2 class="text-center">Seleccion de perfiles</h2>
+				<h2 class="text-center">Perfiles con Match</h2>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -37,25 +37,16 @@
 								<th scope="col">Edad</th>
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
-								<th scope="col">Gustos</th>
-								<th scope="col" colspan="2"></th>
 
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="perfil: ${perfiles}">
+							<tr th:each="perfil: ${match}">
 								<td th:text="${perfil.nombre_perfil}"></td>
 								<td th:text="${perfil.genero_perfil}"></td>
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
-								<td th:text="${perfil.categoria}"></td>
-								<td><a id="btnlike"
-									class="btn btn-success btn-sm tamlikedislike"
-									th:href="@{/checkLike/} + ${perfil.cod_perfil}">like</a></td>
-								<td><a id="btndislike"
-									class="btn btn-danger btn-sm tamlikedislike"
-									th:href="@{/checkDislike/} + ${perfil.cod_perfil}">dislike</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -63,7 +54,6 @@
 			</div>
 		</div>
 	</div>
-	<br/>
-
+	<br />
 </body>
 </html>

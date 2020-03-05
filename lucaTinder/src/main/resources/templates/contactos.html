@@ -13,10 +13,11 @@
 		<h3>LucaTinder</h3>
 
 		<div class="spacer">
+			<a href="/miperfil" class="tabulacion">MI PERFIL</a>
 			<a href="/selection" class="tabulacion">Ver perfiles</a>
 			<a href="" class="tabulacion">Contactos</a>
 			<a href="/descartes" class="tabulacion">Descartes</a>
-			<a href="" class="tabulacion">Match</a>
+			<a href="/match" class="tabulacion">Match</a>
 			<a href="/" class="tabulacion">CERRAR SESION</a>
 		</div>
 	</div>
@@ -37,6 +38,7 @@
 								<th scope="col">Edad</th>
 								<th scope="col">Descripción</th>
 								<th scope="col">Población</th>
+								<th scope="col">Gustos</th>
 
 							</tr>
 						</thead>
@@ -47,6 +49,7 @@
 								<td th:text="${perfil.edad_perfil}"></td>
 								<td th:text="${perfil.descripcion_perfil}"></td>
 								<td th:text="${perfil.poblacion_perfil}"></td>
+								<td th:text="${perfil.categoria}"></td>
 							</tr>
 						</tbody>
 					</table>

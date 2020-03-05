@@ -16,16 +16,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.luca.tinder.model.Perfil;
+import com.luca.tinder.service.CategoriaService;
+import com.luca.tinder.service.CategoriaServiceImpl;
 import com.luca.tinder.service.PerfilService;
 
 @Controller
-@SessionAttributes("perfil")
+@SessionAttributes({"perfil", "perfilOld"})
 public class PerfilesController {
 	// Numero a partir del cual se dejarán de añadir perfiles falsos
 	private final long PERFILMIN = 20;
 
 	@Autowired
 	private PerfilService servicio;
+	
+	@Autowired
+	private CategoriaService catserv;
+	
 	private static final Logger logger = LoggerFactory.getLogger(PerfilesController.class);
 
 	@GetMapping("/")
@@ -72,6 +78,12 @@ public class PerfilesController {
 		model.addAttribute("descartes", servicio.getDescartes(perfil));
 		return "descartes";
 	}
+	@GetMapping("/match")
+	public String mostrarMatch(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando match ");
+		model.addAttribute("match", servicio.getMatch(perfil));
+		return "match";
+	}
 	
 	@GetMapping("/checkLike/{id}")
 	public String checkLike(ModelMap model, @ModelAttribute("perfil") Perfil perfil, @PathVariable(name = "id") int cod_perfil) {
@@ -116,5 +128,42 @@ public class PerfilesController {
 		return "index";
 
 	}
+	
+	@GetMapping("/miperfil")
+	public String cargarMiperfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- Mostrando perfil ");
+		model.addAttribute("miperfil", servicio.cargarMiperfil(perfil));
+		model.addAttribute("perfilOld", perfil);
+		return "miperfil";
+	}
+	
+	@GetMapping("/eliminar/{id}")
+	public String eliminarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		Perfil p = (Perfil) model.getAttribute("perfil");
+		logger.info(p.toString());
+		logger.info("-- eliminando" + perfil);
+		servicio.eliminarPerfil(p);
+		model.addAttribute("perfil", new Perfil());
+		return "redirect:/";
+	}
 
+	@PostMapping("/editarperfil")
+	public String editarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil,
+			BindingResult result, @ModelAttribute("perfilOld") Perfil perfilViejo) {
+		logger.info("------- Editando Perfil ");
+		model.addAttribute("perfil", new Perfil());
+		servicio.editarPerfil(perfil, perfilViejo);
+		model.addAttribute("perfil", servicio.buscarPorNick(perfilViejo.getNick_perfil()));
+		return "redirect:/miperfil";
+	}
+	
+
+	@GetMapping("/modifperfil")
+	public String modificarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- modificando perfil ");
+		
+		model.addAttribute("perfilOld", perfil);
+		return "editarperfil";
+	}
+	
 }

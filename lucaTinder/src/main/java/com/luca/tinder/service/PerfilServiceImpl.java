@@ -127,6 +127,32 @@ public class PerfilServiceImpl implements PerfilService {
 		return contactos;
 	}
 
+	@Override
+	public ArrayList<Perfil> getMatch(Perfil p) {
+		ArrayList<Perfil> contactos=null;
+		contactos=perfDao.getMatch(p);
+		return contactos;
+	}
 
+	@Override
+	public Perfil cargarMiperfil(Perfil p) {
+		Perfil miperfil = null;
+		miperfil = perfDao.cargarMiperfil(p);
+		return miperfil;
+		
+	}
+	
+	@Override
+	public boolean editarPerfil(Perfil p, Perfil old) {
+		p.setCod_perfil(old.getCod_perfil());
+		p.setNick_perfil(old.getNick_perfil());
+		return perfDao.editarPerfil(p);
+	}
+
+	@Override
+	public void eliminarPerfil(Perfil p) {
+		perfDao.eliminarPerfil(p);
+		
+	}
 	
 }
