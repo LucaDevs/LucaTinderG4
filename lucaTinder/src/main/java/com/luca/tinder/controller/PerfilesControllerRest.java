@@ -62,7 +62,7 @@ public class PerfilesControllerRest {
 	}
 	
 	@GetMapping("/miperfil")
-	Collection<Perfil> miPerfil(@RequestBody Perfil perfil) {
+	Perfil miPerfil(@RequestBody Perfil perfil) {
 		return this.servicio.cargarMiperfil(perfil);
 	}
 	

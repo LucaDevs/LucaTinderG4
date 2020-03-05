@@ -15,7 +15,13 @@ public interface PerfilService {
 	public ArrayList<Perfil> getContactos(Perfil p);
 	public  ArrayList<Perfil> getDescartes(Perfil p);
 	public  ArrayList<Perfil> getMatch(Perfil p);
+<<<<<<< HEAD
 	public ArrayList<Perfil> cargarMiperfil(Perfil p);
 	public boolean editarPerfil(Perfil p, Perfil perfilViejo);
+=======
+	public Perfil cargarMiperfil(Perfil p);
+	public void eliminarPerfil(Perfil p);
+	
+>>>>>>> refs/heads/tarea_EliminarUsuario_alejandro_leoVersion
 	
 }
