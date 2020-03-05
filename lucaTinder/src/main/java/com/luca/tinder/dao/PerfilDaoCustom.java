@@ -14,11 +14,7 @@ public interface PerfilDaoCustom {
 	public ArrayList<Perfil> getContactos(Perfil p);
 	public ArrayList<Perfil> getDescartes(Perfil p);
 	public ArrayList<Perfil> getMatch(Perfil p);
-<<<<<<< HEAD
-	public ArrayList<Perfil> cargarMiperfil(Perfil p);
-	public boolean editarPerfil(Perfil p);
-=======
 	public Perfil cargarMiperfil(Perfil p);
 	void eliminarPerfil(Perfil p);
->>>>>>> refs/heads/tarea_EliminarUsuario_alejandro_leoVersion
+	public boolean editarPerfil(Perfil p);
 } 
