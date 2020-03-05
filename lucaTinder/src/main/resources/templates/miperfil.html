@@ -72,8 +72,8 @@
 			<div class="card-footer">
 				<br />
 				<div class="form-group text-center">
-					<button value=""
-						class="btn btn-primary btn-sm" id="mostrarContMod">MODIFICAR LOS DATOS</button>
+					<a href="/modifperfil"
+						class="btn btn-primary btn-sm">MODIFICAR LOS DATOS</a>
 					<!--<input type="submit" value="CAMBIAR COMTRASEÑA" class="btn btn-primary btn-sm" /> -->
 					<a th:href="@{/eliminar/} + ${perfil.cod_perfil}" 
 						class="btn btn-primary btn-sm" >DAR DE BAJA EL USUARIO</a>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 	</div>
-	<br />
+	<!--<br />
 	<div class="offset-md-4 col-md-4">
 		<div id="contenedorModificar" class="card" style="display: none;">
 			<div class="card-healer">
@@ -89,7 +89,7 @@
 			</div>
 			
 			
-			
+		 
 			<div class="card-body">
 				<div class="card-body">
 					<form method="post" th:object="${perfil}"
@@ -177,6 +177,6 @@
 			</div>
 		</div>
 	</div>
-	<br/>
+	<br/>  -->	
 </body>
 </html>

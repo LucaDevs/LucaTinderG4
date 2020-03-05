@@ -114,7 +114,7 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	}
 	
 	public boolean editarPerfil(Perfil p) {
-		Query query = entityManager.createNativeQuery("Update lucatinder.perfiles set nombre_perfil = ?, genero_perfil=?"
+		Query query = entityManager.createNativeQuery("Update lucatinder.perfiles set nombre_perfil = ?, genero_perfil=?,"
 				+ "edad_perfil=?, descripcion_perfil=?, poblacion_perfil=? where nick_perfil=?");
 		query.setParameter(1, p.getNombre_perfil());
 		query.setParameter(2, p.getGenero_perfil());

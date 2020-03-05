@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/js/javascript.js}" />
 <title>Insert title here</title>
 </head>
 <body>
-
+<div id="contenedorModificar" class="card" >
+			<div class="card-healer">
+				<h3 class="text-center">Añade las modificaciones:</h3>
+			</div>
+	<div class="card-body">
+				<div class="card-body">
+					<form method="post" th:object="${perfil}"
+						th:action="@{/editarperfil}"> 
+						<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-3 control-label" for="nick_perfil">Nick:</label>
+							<div class="col-md-12">
+								<input type="text" th:field="*{nick_perfil}"
+									class="form-control input-sm" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-3 control-label" for="nombre_perfil">Nombre
+									(*)</label>
+								<div class="col-md-12">
+									<input type="text" th:field="*{nombre_perfil}"
+										class="form-control input-sm" />
+									<div th:if="${#fields.hasErrors('nombre_perfil')}"
+										th:errors="*{nombre_perfil}" class="has-error help-inline">Nombre
+										Error</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-3 control-label" for="genero_perfil">Genero
+									(*)</label>
+								<div class="col-md-12">
+									<input type="radio" th:field="*{genero_perfil}" th:value="M"
+										checked="checked" />Hombre <input type="radio"
+										th:field="*{genero_perfil}" th:value="F" />Mujer
+									<div th:if="${#fields.hasErrors('genero_perfil')}"
+										th:errors="*{genero_perfil}" class="has-error help-inline">Genero
+										Error</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-3 control-label" for="edad_perfil">Edad
+									(*)</label>
+								<div class="col-md-12">
+									<input type="text" th:field="*{edad_perfil}"
+										class="form-control input-sm" />
+									<div th:if="${#fields.hasErrors('edad_perfil')}"
+										th:errors="*{edad_perfil}" class="has-error help-inline">Edad
+										Error</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-3 control-label" for="descripcion_perfil">Descripcion
+									(*)</label>
+								<div class="col-md-12">
+									<input type="text" th:field="*{descripcion_perfil}"
+										class="form-control input-sm" />
+									<div th:if="${#fields.hasErrors('descripcion_perfil')}"
+										th:errors="*{descripcion_perfil}"
+										class="has-error help-inline">Descripcion Error</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-3 control-label" for="poblacion_perfil">Poblacion
+									(*)</label>
+								<div class="col-md-12">
+									<input type="text" th:field="*{poblacion_perfil}"
+										class="form-control input-sm" />
+									<div th:if="${#fields.hasErrors('poblacion_perfil')}"
+										th:errors="*{poblacion_perfil}" class="has-error help-inline">Poblacion
+										Error</div>
+								</div>
+							</div>
+						</div>
+						<input type="submit" value="Aceptar" class="btn btn-primary btn-sm" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

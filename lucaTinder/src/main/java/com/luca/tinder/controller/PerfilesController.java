@@ -148,7 +148,7 @@ public class PerfilesController {
 		return "redirect:/";
 	}
 
-	@PostMapping("/editarPerfil")
+	@PostMapping("/editarperfil")
 	public String editarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil,
 			BindingResult result, @ModelAttribute("perfilOld") Perfil perfilViejo) {
 		logger.info("------- Editando Perfil ");
@@ -157,4 +157,14 @@ public class PerfilesController {
 		model.addAttribute("perfil", servicio.buscarPorNick(perfilViejo.getNick_perfil()));
 		return "redirect:/miperfil";
 	}
+	
+
+	@GetMapping("/modifperfil")
+	public String modificarPerfil(ModelMap model, @ModelAttribute("perfil") Perfil perfil) {
+		logger.info("------- modificando perfil ");
+		
+		model.addAttribute("perfilOld", perfil);
+		return "editarperfil";
+	}
+	
 }
