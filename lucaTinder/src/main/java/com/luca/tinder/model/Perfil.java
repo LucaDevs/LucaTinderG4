@@ -1,6 +1,8 @@
 package com.luca.tinder.model;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -154,15 +156,21 @@ public class Perfil {
 	//Crear perfiles falsos
 	public static HashMap<String, Perfil> CrearFalsosPerfiles() {
 		HashMap<String, Perfil> cuentas = new HashMap<String, Perfil>();
-		for(int i=0;i<10;i++) {
+		Set<String> usernameSet = new HashSet<String>(100);
+		for(int i=0; i<usernameSet.size();i++) {
+			Faker faker = new Faker(new Locale("es"));
+			usernameSet.add(faker.name().username());
+		}
+		String[] username = (String[]) usernameSet.toArray();
+		for(int i=0;i<25;i++) {
 			Perfil p=new Perfil();
-			Faker faker = new Faker();
+			Faker faker = new Faker(new Locale("es"));
 			
 			
 			int azar=(int)(Math.random()*2);
 			
-			p.setNombre_perfil(faker.animal().name());
-			p.setNick_perfil(faker.animal().name());
+			p.setNombre_perfil(faker.name().firstName());
+			p.setNick_perfil(username[i]);
 			p.setEdad_perfil(18 + (int)((Math.random()*(90-18))));
 			p.setPoblacion_perfil(faker.address().cityName());
 			if(azar==0) {
