@@ -18,6 +18,17 @@
 			return false;
 		});
 	});
+	$(document).ready(function() {
+		$("#ocultarContBorrar").on('click', function() {
+			$("#contenedorBorrar").hide();
+			return false;
+		});
+
+		$("#mostrarContBorrar").on('click', function() {
+			$("#contenedorBorrar").show();
+			return false;
+		});
+	});
 </script>
 <title>Mi perfil</title>
 </head>
@@ -74,22 +85,35 @@
 				<div class="form-group text-center">
 					<input type="submit" value="MODIFICAR LOS DATOS"
 						class="btn btn-primary btn-sm" id="mostrarContMod" />
-					<!--<input type="submit" value="CAMBIAR COMTRASEÑA" class="btn btn-primary btn-sm" /> -->
-					<input type="submit" value="DAR DE BAJA EL USUARIO"
-						class="btn btn-primary btn-sm" />
+					<input type="submit" value="DAR DE BAJA EL USUARIO" 
+						class="btn btn-primary btn-sm" id="mostrarContBorrar" />
+					<!-- <a th:href="@{/eliminar/} + ${perfil.cod_perfil}"
+						class="btn btn-primary btn-sm" >DAR DE BAJA EL USUARIO</a>  -->
 				</div>
 			</div>
 		</div>
 	</div>
 	<br />
 	<div class="offset-md-4 col-md-4">
+		<div id="contenedorBorrar" class="card" style="display: none;">
+			<div class="card-healer">
+				<h3 class="text-center">Añade las modificaciones:</h3>
+			</div>
+			<div class="card-body">
+				<div class="card-body text-center">
+					<a th:href="@{/eliminar/} + ${perfil.cod_perfil}"
+						class="btn btn-primary btn-sm text-center" >Sí, estoy seguro</a>
+					<input type="submit" value="No. Me lo he pensado mejor" 
+						class="btn btn-primary btn-sm text-center" id="ocultarContBorrar" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="offset-md-4 col-md-4">
 		<div id="contenedorModificar" class="card" style="display: none;">
 			<div class="card-healer">
 				<h3 class="text-center">Añade las modificaciones:</h3>
 			</div>
-			
-			
-			
 			<div class="card-body">
 				<div class="card-body">
 					<form method="post" th:object="${perfil}"
