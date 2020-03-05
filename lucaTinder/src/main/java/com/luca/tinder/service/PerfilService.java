@@ -3,7 +3,12 @@ package com.luca.tinder.service;
 import java.util.ArrayList;
 
 import com.luca.tinder.model.Perfil;
-
+/**
+ * 
+ * @author Alejandro Martin
+ * @since 1.0
+ *
+ */
 public interface PerfilService {
 	
 	public void createNewPerfil(Perfil perfil);

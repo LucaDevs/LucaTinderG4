@@ -20,7 +20,12 @@ import org.slf4j.LoggerFactory;
 
 import com.github.javafaker.Faker;
 
-
+/**
+ * 
+ * @author Alejandro Martin
+ * @since 1.0
+ *
+ */
 @Entity
 @Table(name = "perfiles")
 public class Perfil {
