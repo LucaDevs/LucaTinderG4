@@ -38,7 +38,6 @@ public class PerfilesControllerRest {
 		}
 	}
 	
-	
 	@PostMapping("/save")
 	ResponseEntity<String> crearPerfil(@RequestBody Perfil perfil) {
 		servicio.createNewPerfil(perfil);
