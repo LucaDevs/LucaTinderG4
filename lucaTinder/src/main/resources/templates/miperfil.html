@@ -72,11 +72,11 @@
 			<div class="card-footer">
 				<br />
 				<div class="form-group text-center">
-					<input type="submit" value="MODIFICAR LOS DATOS"
-						class="btn btn-primary btn-sm" id="mostrarContMod" />
+					<button value=""
+						class="btn btn-primary btn-sm" id="mostrarContMod">MODIFICAR LOS DATOS</button>
 					<!--<input type="submit" value="CAMBIAR COMTRASEÑA" class="btn btn-primary btn-sm" /> -->
-					<input type="submit" value="DAR DE BAJA EL USUARIO"
-						class="btn btn-primary btn-sm" />
+					<a th:href="@{/eliminar/} + ${perfil.cod_perfil}" 
+						class="btn btn-primary btn-sm" >DAR DE BAJA EL USUARIO</a>
 				</div>
 			</div>
 		</div>

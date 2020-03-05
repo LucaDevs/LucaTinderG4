@@ -88,10 +88,16 @@ public class PerfilServiceImpl implements PerfilService {
 	}
 
 	@Override
-	public ArrayList<Perfil> cargarMiperfil(Perfil p) {
-		ArrayList<Perfil> miperfil = null;
+	public Perfil cargarMiperfil(Perfil p) {
+		Perfil miperfil = null;
 		miperfil = perfDao.cargarMiperfil(p);
 		return miperfil;
+		
+	}
+
+	@Override
+	public void eliminarPerfil(Perfil p) {
+		perfDao.eliminarPerfil(p);
 		
 	}
 

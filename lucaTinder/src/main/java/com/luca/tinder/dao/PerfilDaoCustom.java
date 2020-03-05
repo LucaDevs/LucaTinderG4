@@ -14,5 +14,6 @@ public interface PerfilDaoCustom {
 	public ArrayList<Perfil> getContactos(Perfil p);
 	public ArrayList<Perfil> getDescartes(Perfil p);
 	public ArrayList<Perfil> getMatch(Perfil p);
-	public ArrayList<Perfil> cargarMiperfil(Perfil p);
+	public Perfil cargarMiperfil(Perfil p);
+	void eliminarPerfil(Perfil p);
 } 
