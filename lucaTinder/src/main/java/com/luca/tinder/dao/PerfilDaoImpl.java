@@ -76,10 +76,12 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	public ArrayList<Perfil> getContactos(Perfil p) {
 		ArrayList<Perfil> contactos = null;
 		Query query = entityManager.createNativeQuery(
-				"select distinct * from lucatinder.perfiles a, lucatinder.listas b where b.tipo_lista = 1 and b.usu2 = a.cod_perfil and b.perfil = ? and a.nick_perfil != ?",
-				Perfil.class);
+				"select distinct * from lucatinder.perfiles a, lucatinder.listas b where b.tipo_lista = 1 and b.usu2 = a.cod_perfil and b.perfil = ? and a.nick_perfil != ? and a.cod_perfil not in (SELECT p.cod_perfil FROM lucatinder.perfiles p where nick_perfil != ? and cod_perfil in (select usu2 from lucatinder.listas where perfil = ? and usu2 in(select perfil from lucatinder.listas where usu2 = ?) and tipo_lista = 1))", Perfil.class);
 		query.setParameter(1, p.getCod_perfil());
 		query.setParameter(2, p.getNick_perfil());
+		query.setParameter(3, p.getNick_perfil());
+		query.setParameter(4, p.getCod_perfil());
+		query.setParameter(5, p.getCod_perfil());
 		contactos = (ArrayList<Perfil>) query.getResultList();
 		return contactos;
 	}
@@ -99,7 +101,13 @@ public class PerfilDaoImpl implements PerfilDaoCustom {
 	@Override
 	public ArrayList<Perfil> getMatch(Perfil p) {
 		ArrayList<Perfil> contactos = null;
-
+		Query query= entityManager.createNativeQuery("SELECT p.* FROM lucatinder.perfiles p where nick_perfil != ? and cod_perfil in " + 
+				"(select usu2 from lucatinder.listas where perfil = ? and usu2 in" + 
+				"(select perfil from lucatinder.listas where usu2 = ?) and tipo_lista = 1)",Perfil.class  );
+		query.setParameter(1, p.getNick_perfil());
+		query.setParameter(2, p.getCod_perfil());
+		query.setParameter(3, p.getCod_perfil());
+		contactos = (ArrayList<Perfil>) query.getResultList();
 		return contactos;
 	}
 
