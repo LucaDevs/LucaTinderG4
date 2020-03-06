@@ -39,6 +39,7 @@ public class PerfilesControllerRest {
 		}
 	}
 	
+<<<<<<< HEAD
 	@PostMapping("/comprobateNick")
 	Perfil comprobarNick(@RequestBody String perfil) {
 		System.out.println("----------------------------Controllr comprobateNick "+perfil);
@@ -52,6 +53,8 @@ public class PerfilesControllerRest {
 	}	
 	
 	
+=======
+>>>>>>> branch 'development' of https://github.com/LucaDevs/LucaTinderG4.git
 	@PostMapping("/save")
 	ResponseEntity<String> crearPerfil(@RequestBody Perfil perfil) {
 		servicio.createNewPerfil(perfil);

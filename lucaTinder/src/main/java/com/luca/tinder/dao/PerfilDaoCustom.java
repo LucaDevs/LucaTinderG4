@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import javax.persistence.NoResultException;
 
 import com.luca.tinder.model.Perfil;
-
+/**
+ * 
+ * @author David Heras
+ * @since 1.0
+ *
+ */
 public interface PerfilDaoCustom {
 	public boolean insertPerfilFalso();
 	public Perfil buscarPorNick(String nick) throws NoResultException;
