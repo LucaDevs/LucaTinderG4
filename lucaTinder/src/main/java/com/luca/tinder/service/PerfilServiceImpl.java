@@ -45,12 +45,14 @@ public class PerfilServiceImpl implements PerfilService {
 	}
 	
 	public Perfil buscarPorNick(String nick) {
+		System.out.println("--- buscarNick: "+nick);
 		Perfil p = null;
 		try {
 			p = perfDao.buscarPorNick(nick);
 		} catch (NoResultException e) {
 			logger.warn("No hay usuario con ese nick");
 		}
+		System.out.println("--- perfil: "+p);
 		return p;
 	}
 	
